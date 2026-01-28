@@ -55,6 +55,9 @@ def send_email(rate):
 
     msg.attach(MIMEText(body, "plain"))
 
+    print("EMAIL_PASS:", "OK" if os.getenv("EMAIL_PASS") else "BRAK")
+    print("EMAIL_FROM:", os.getenv("EMAIL_FROM"))
+    
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as smtp:
             smtp.starttls()
