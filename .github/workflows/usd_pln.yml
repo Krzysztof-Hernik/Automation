@@ -2,7 +2,7 @@ name: USD PLN notifier
 
 on:
   schedule:
-    - cron: '*/2 * * * *'   # 10:00 czasu Wiednia
+    - cron: '*/5 * * * *'   # 10:00 czasu Wiednia
   workflow_dispatch:
 
 jobs:
