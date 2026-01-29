@@ -18,6 +18,15 @@ if os.path.exists("ran.txt"):
     print("Już wykonane dziś")
     sys.exit(0)
 
+# ===== TWOJA LOGIKA =====
+# fetch kurs
+# send email
+# send discord
+# =======================
+
+with open("ran.txt", "w") as f:
+    f.write(str(datetime.now()))
+
 # ————————— CONFIG —————————
 
 SMTP_SERVER = os.getenv("SMTP_SERVER")
