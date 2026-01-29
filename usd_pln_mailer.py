@@ -8,6 +8,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+now = datetime.now().strftime("%H:%M")
+
+if not ("10:00" <= now <= "10:20"):
+    print("Poza oknem czasowym – exit")
+    sys.exit(0)
+
 # ————————— CONFIG —————————
 
 SMTP_SERVER = os.getenv("SMTP_SERVER")
