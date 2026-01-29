@@ -10,13 +10,21 @@ load_dotenv()
 
 now = datetime.now().strftime("%H:%M")
 
-if not ("10:00" <= now <= "10:20"):
-    print("Poza oknem czasowym – exit")
+if now.hour != 10:
+    print("To nie 10:00")
     sys.exit(0)
 
-if os.path.exists("ran.txt"):
-    print("Już wykonane dziś")
+if now.minute > 5:
+    print("Za późno")
     sys.exit(0)
+
+# if not ("10:00" <= now <= "10:20"):
+#     print("Poza oknem czasowym – exit")
+#     sys.exit(0)
+
+# if os.path.exists("ran.txt"):
+#     print("Już wykonane dziś")
+#     sys.exit(0)
 
 # ===== TWOJA LOGIKA =====
 # fetch kurs
