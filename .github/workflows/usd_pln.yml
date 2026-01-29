@@ -1,14 +1,37 @@
-name: TEST CRON
+name: USD PLN notifier
 
 # keep-alive
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: '*/5 9 * * *'   # 10:00 czasu Wiednia
   workflow_dispatch:
 
 jobs:
-  test:
+  run-script:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "CRON DZIAŁA"
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests python-dotenv
+
+      - name: Run script
+        env:
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          python usd_pln_mailer.py
+
