@@ -13,7 +13,7 @@ now = datetime.now(ZoneInfo("Europe/Vienna"))
 
 print(f"Aktualny czas: {now}")
 
-if now.hour != 10 or now.minute > 25:
+if now.hour != 8 or now.minute > 55:
     print("Poza oknem czasowym – kończę")
     exit(0)
 
@@ -29,9 +29,9 @@ if now.hour != 10 or now.minute > 25:
 #     print("Poza oknem czasowym – exit")
 #     sys.exit(0)
 
-# if os.path.exists("ran.txt"):
-#     print("Już wykonane dziś")
-#     sys.exit(0)
+if os.path.exists("ran.txt"):
+    print("Już wykonane dziś")
+    sys.exit(0)
 
 # ===== TWOJA LOGIKA =====
 # fetch kurs
