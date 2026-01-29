@@ -1,5 +1,7 @@
 name: TEST CRON
 
+# keep-alive
+
 on:
   schedule:
     - cron: "*/5 * * * *"
