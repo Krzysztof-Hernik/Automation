@@ -5,18 +5,25 @@ from email.mime.multipart import MIMEMultipart
 import os
 from datetime import datetime
 from dotenv import load_dotenv
+from zoneinfo import ZoneInfo
 
 load_dotenv()
 
-now = datetime.now().strftime("%H:%M")
+now = datetime.now(ZoneInfo("Europe/Vienna"))
 
-if now.hour != 10:
-    print("To nie 10:00")
-    sys.exit(0)
+print(f"Aktualny czas: {now}")
 
-if now.minute > 5:
-    print("Za późno")
-    sys.exit(0)
+if now.hour != 10 or now.minute > 25:
+    print("Poza oknem czasowym – kończę")
+    exit(0)
+
+# if now.hour != 10:
+#     print("To nie 10:00")
+#     sys.exit(0)
+
+# if now.minute > 5:
+#     print("Za późno")
+#     sys.exit(0)
 
 # if not ("10:00" <= now <= "10:20"):
 #     print("Poza oknem czasowym – exit")
