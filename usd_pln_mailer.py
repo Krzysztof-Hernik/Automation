@@ -13,7 +13,7 @@ now = datetime.now(ZoneInfo("Europe/Vienna"))
 
 print(f"Aktualny czas: {now}")
 
-if now.hour != 8 or now.minute > 55:
+if now.hour < 8 or now.minute > 9:
     print("Poza oknem czasowym – kończę")
     exit(0)
 
